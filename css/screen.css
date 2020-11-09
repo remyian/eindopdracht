@@ -2,7 +2,19 @@
   /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
+@font-face
+{
+    font-family: "Noto Serif";
+    font-weight: 200;
+    src: url('../fonts/NotoSerif-Regular.ttf')
+}
 
+@font-face
+{
+    font-family: "Noto Serif";
+    font-weight: 600;
+    src: url('../fonts/NotoSerif-Bold.ttf')
+}
 
 /*------------------------------------*\
 #Variables
@@ -25,7 +37,7 @@
     Global page styles + universal box-sizing:
 */
 html {
-    font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-family: "Noto Serif", Helvetica, arial, sans-serif;
     font-size: 18px;
     line-height: 32px;
     font-weight: 200;
@@ -520,7 +532,6 @@ html, body, .viewport {
     {
         background-size: 90%;
     }
-
 }
 
 

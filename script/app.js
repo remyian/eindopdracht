@@ -1,4 +1,56 @@
 
+const getTime = () =>{
+	var d = new Date(); // for now
+	document.querySelector('.js-local-time').innerText = d.getHours().toString() + ":"+d.getMinutes().toString();
+	getCoordintes(); 
+};
+
+
+
+//stad ophalen aan de hand van de cooridinaten en LocationIQ api
+function getCoordintes() { 
+	var options = { 
+		enableHighAccuracy: true, 
+		timeout: 5000, 
+		maximumAge: 0 
+	}; 
+
+	function success(pos) { 
+		var crd = pos.coords; 
+		var lat = crd.latitude.toString(); 
+		var lng = crd.longitude.toString(); 
+		var coordinates = [lat, lng]; 
+		getCity(coordinates); 
+		return; 
+
+	} 
+
+	function error(err) { 
+		console.warn(`ERROR(${err.code}): ${err.message}`); 
+	} 
+
+	navigator.geolocation.getCurrentPosition(success, error, options); 
+} 
+
+function getCity(coordinates) { 
+	var xhr = new XMLHttpRequest(); 
+	var lat = coordinates[0]; 
+	var lng = coordinates[1]; 
+
+	xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key=pk.61d4f9658af8c096859f4e3fb152ba66&lat=" + lat + "&lon=" + lng + "&format=json", true); 
+	xhr.send(); 
+	xhr.onreadystatechange = processRequest; 
+	xhr.addEventListener("readystatechange", processRequest, false); 
+
+	function processRequest(e) { 
+		if (xhr.readyState == 4 && xhr.status == 200) { 
+			var response = JSON.parse(xhr.responseText); 
+			var city = response.address.village; 
+			document.querySelector('.js-location').innerText = city;
+			return; 
+		} 
+	} 
+} 
 
 
 
@@ -23,4 +75,5 @@ const getAPI = async(lat, lon) => {
 document.addEventListener('DOMContentLoaded', function() {
 	// 1 We will query the API with longitude and latitude.
 	getAPI(50.8027841, 3.2097454);
+	getTime();
 });
