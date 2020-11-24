@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Timzeone Viewer</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
+
     <script src="script/app.js"></script>
     <script src="script/key.js"></script>
 
@@ -14,26 +21,43 @@
 
         <div class="grid-item-header">
             <div>
-                <img src="img/timezone_viewer_logo.png" alt="This is the timezone viewer logo" width="232"height="87">
+                <img src="img/timezone_viewer_logo.png" alt="This is the timezone viewer logo" class="c-logo" width="232"height="87">
             </div>
         </div>
 
-        <div class="grid-item-local background-local-light"> 
-            <div class="">
+        <div class="grid-item-local background-light"> 
                 <div>
                     <h3>Local Time</h3>
                     <p class="js-location"> (choose place) </p>
                     <h1 class="js-local-time"> TIME </h1>
+                    <div>
+                        <img src="img/iconfinder_weather02_4102326.png" width="40%"/>
+                    </div>
                 </div>
-            </div>
         </div>
 
-        <div class="grid-item-chosen  background-local-dark">
+        <div class="grid-item-chosen  background-dark">
             <div>
                 <h3>Time at chosen place</h3>
-                <p> (choose place) </p>
-                <h1> TIME </h1>
-            </div>
+                <form action="/action_page.php">
+                  <label for="place">Choose a place:</label>
+                  <select  class="c-dropdown" onchange="getPlace();" name="place" id="place">
+                    <option value="37.316090,-120.089748">California</option>
+                    <option value="40.712776,-74.005974">New York</option>
+                    <option value="35.861660,104.195396">China</option>
+                    <option value="35.689487,139.691711">Tokyo</option>
+                    <option value="51.507351,-0.127758">London</option>
+                    <option value="-33.8548157,151.2164539">Sydney</option>
+                    <option value="52.5170365,13.3888599">Berlin</option>
+                    <option value="22.3511148,78.6677428">India</option>
+                  </select>
+                  <br><br>
+                </form>
+                <h1> 18:08 </h1>
+                <div class="c-icon">
+                    <img src="img/iconfinder_Weather_Weather_Forecast_Moon_Night_Cloud_3859140.png" width="30%"/>
+                </div>
+            </div> 
         </div>
 
     </div>

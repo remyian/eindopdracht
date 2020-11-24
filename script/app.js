@@ -1,11 +1,20 @@
+function getPlace() { 
+  var sel = document.getElementById("place");
+  var value = sel.options[sel.selectedIndex].value;
+  var lat = value.substring(0, value.indexOf(","));
+  var lon = value.substring(1, value.indexOf(","));
+  getTimeZone(lat,lon);
+}
 
+
+
+
+//tijd ophalen
 const getTime = () =>{
 	var d = new Date(); // for now
 	document.querySelector('.js-local-time').innerText = d.getHours().toString() + ":"+d.getMinutes().toString();
 	getCoordintes(); 
 };
-
-
 
 //stad ophalen aan de hand van de cooridinaten en LocationIQ api
 function getCoordintes() { 
@@ -14,7 +23,6 @@ function getCoordintes() {
 		timeout: 5000, 
 		maximumAge: 0 
 	}; 
-
 	function success(pos) { 
 		var crd = pos.coords; 
 		var lat = crd.latitude.toString(); 
@@ -22,16 +30,12 @@ function getCoordintes() {
 		var coordinates = [lat, lng]; 
 		getCity(coordinates); 
 		return; 
-
 	} 
-
 	function error(err) { 
 		console.warn(`ERROR(${err.code}): ${err.message}`); 
 	} 
-
 	navigator.geolocation.getCurrentPosition(success, error, options); 
 } 
-
 function getCity(coordinates) { 
 	var xhr = new XMLHttpRequest(); 
 	var lat = coordinates[0]; 
@@ -61,9 +65,9 @@ const showResult = (queryResponse) => {
 };
 
 // 2 Aan de hand van een longitude en latitude gaan we de yahoo wheater API ophalen.
-const getAPI = async(lat, lon) => {
+const getTimeZone = async(lat, lon) => {
 	// Eerst bouwen we onze url op
-    // Met de fetch API proberen we de data op te halen.
+  // Met de fetch API proberen we de data op te halen.
 	const data = await fetch(`https://maps.googleapis.com/maps/api/timezone/json?location=${lat},${lon}&timestamp=1458000000&key=AIzaSyCrG-QvISEJ5Bal_kfYY12N6QhW0JHSZDk`)
 	.then((r)=> r.json())
 	.catch((err)=> console.error('an arror accured:', err));
@@ -74,6 +78,6 @@ const getAPI = async(lat, lon) => {
 
 document.addEventListener('DOMContentLoaded', function() {
 	// 1 We will query the API with longitude and latitude.
-	getAPI(50.8027841, 3.2097454);
+	getTimeZone(50.8027841, 3.2097454);
 	getTime();
 });
