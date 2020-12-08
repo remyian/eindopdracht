@@ -31,7 +31,7 @@
                     <p class="js-location"> (choose place) </p>
                     <h1 class="js-local-time"> TIME </h1>
                     <div>
-                        <img src="img/iconfinder_weather02_4102326.png" width="40%"/>
+                        <img id="js-Local-image" src="img/iconfinder_weather02_4102326.png"/>
                     </div>
                 </div>
         </div>
@@ -41,21 +41,39 @@
                 <h3>Time at chosen place</h3>
                 <form action="/action_page.php">
                   <label for="place">Choose a place:</label>
-                  <select  class="c-dropdown" onchange="getPlace();" name="place" id="place">
-                    <option value="37.316090,-120.089748">California</option>
-                    <option value="40.712776,-74.005974">New York</option>
-                    <option value="35.861660,104.195396">China</option>
-                    <option value="35.689487,139.691711">Tokyo</option>
-                    <option value="51.507351,-0.127758">London</option>
-                    <option value="-33.8548157,151.2164539">Sydney</option>
-                    <option value="52.5170365,13.3888599">Berlin</option>
-                    <option value="22.3511148,78.6677428">India</option>
+                  <select  class="c-dropdown" onchange="getPlace();" name="place" id="place"> 
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="New York">New York</option>
+                    <option value="China">China</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="India">India</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="Iran">Iran</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    
                   </select>
                   <br><br>
                 </form>
-                <h1> 18:08 </h1>
-                <div class="c-icon">
-                    <img src="img/iconfinder_Weather_Weather_Forecast_Moon_Night_Cloud_3859140.png" width="30%"/>
+                <h1 class="js-chosen-time"> 18:08 </h1>
+                <div>
+                    <img id="js-Chosen-image" src="img/iconfinder_Weather_Weather_Forecast_Moon_Night_Cloud_3859140.png" />
                 </div>
             </div> 
         </div>

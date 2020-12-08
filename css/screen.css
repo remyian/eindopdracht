@@ -451,8 +451,6 @@ body {
 /*------------------------------------*\
   #COMPONENTS LANDINGSPAGE
 \*------------------------------------*/
-
-
 .grid-container-landingspage{
     min-height: 100vh;
 }
@@ -541,8 +539,10 @@ a.c-button:hover{
     }
 }
 
+
+
 /*------------------------------------*\
-  #COMPONENTS INDEX
+  #COMPONENTS MAIN PAGE
 \*------------------------------------*/
 
 /* css grid */
@@ -579,7 +579,6 @@ html, body, .viewport {
     }
 }
 
-  
 .grid-item-header{
     grid-column: span 2;
     display: flex;
@@ -599,17 +598,6 @@ html, body, .viewport {
     align-items: center;
 }
 
-.c-icon{
-    padding-top: 2.5rem;
-}
-
-.background-dark{
-    
-}
-
-.background-light{
-    
-}
 
 .c-dropdown{
 	font-size: 16px;
