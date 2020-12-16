@@ -120,7 +120,7 @@ const showResult = (queryResponse) => {
 const getTimeZone = async(city) => {
 	// Eerst bouwen we onze url op
   // Met de fetch API proberen we de data op te halen.
-	const data = await fetch(`http://api.weatherapi.com/v1/timezone.json?key=${key}&q=${city}`)
+	const data = await fetch(`https://api.weatherapi.com/v1/timezone.json?key=${key}&q=${city}`)
 	.then((r)=> r.json())
 	.catch((err)=> console.error('an arror accured:', err)); 
 	var obj = data;
