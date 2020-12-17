@@ -106,11 +106,14 @@ function getCity(coordinates) {
 function getPlace() { 
 	var sel = document.getElementById("place");
 	var city = sel.options[sel.selectedIndex].value;
-	getTimeZone(city);
+	getTimeZone(city); //main api oproepen
 }
 
 
 
+//--------------------------------------------------------------------------------------------------------------------------------------
+//							MAIN API
+//--------------------------------------------------------------------------------------------------------------------------------------
 // 3 Met de data van de API kunnen we de app opvullen
 const showResult = (queryResponse) => {
 	console.log({queryResponse});
